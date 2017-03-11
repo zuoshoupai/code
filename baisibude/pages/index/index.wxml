@@ -1,0 +1,48 @@
+<view wx:if="{{loadingHidden}}" style="text-align:center">
+    <text class="loadingTop">正在加载...</text> 
+</view>
+<scroll-view  style="height:{{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true"  bindscrolltolower="pullUpLoad" >
+  
+  <block wx:for-items="{{list}}" >
+    <!--分割线-->
+    <view class="divLine"></view>
+    <!--item-->
+    <view class="containsView">
+            <view class="topContainsView"> 
+                <image class="profileImage" src="{{item.profile_image}}" />
+                <view class="topRightView">
+                    <text class="topRightName">{{item.name}}</text>
+                    <text class="topRightTime">{{item.passtime}}</text>
+                </view>   
+            </view>
+            <text class="centerContent">{{item.text}}</text> 
+            <view class="bottomView">
+                <view class="bottomItemView">
+                    <image class="bottomItemImage" src="../images/ding.png" />
+                    <text class="bottomItemText">{{item.ding}}</text>
+                </view>
+                <view class="bottomItemView">
+                    <image class="bottomItemImage" src="../images/cai.png" />
+                    <text class="bottomItemText">{{item.cai}}</text>
+                </view>
+                <view class="bottomItemView">
+                    <image class="bottomItemImage" src="../images/share.png" />
+                    <text class="bottomItemText">{{item.share}}</text>
+                </view>
+                <view class="bottomItemView">
+                    <image class="bottomItemImage" src="../images/comment.png" />
+                    <text class="bottomItemText">{{item.comment}}</text>
+                </view>
+            </view>
+      
+    </view>
+  </block> 
+  <view wx:if="{{hasMore}}" style="text-align:center">
+			<view wx:if="{{nomore}}" class="tips">
+				<text>没有更多内容了</text>
+			</view>
+			<view wx:else class="tips">
+				<text>玩了命的加载中...</text>
+			</view>
+   </view>
+</scroll-view> 

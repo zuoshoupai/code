@@ -1,0 +1,4 @@
+<view wx:if="{{loadingHidden}}" >
+     <text style="text-align:center">正在加载...</text>
+</view>
+<image src="{{url}}" style="display:flex;width:100%;"   mode="widthFix"/>

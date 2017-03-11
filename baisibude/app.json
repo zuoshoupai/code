@@ -1,0 +1,49 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/image/image",
+    "pages/voice/voice",
+    "pages/video/video",
+    "pages/detail/detail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":true
+  },
+  "tabBar":{
+    "color":"#999",
+    "selectedColor":"#555",
+    "borderStyle":"white",
+    "backgroundColor": "#ffffff",
+    "list":[
+      {
+        "pagePath":"pages/index/index",
+        "text":"段子",
+        "iconPath":"images/wordN.png",
+        "selectedIconPath":"images/wordS.png"
+      },
+      {
+        "pagePath":"pages/image/image",
+        "text":"图片",
+        "iconPath":"images/imageN.png",
+        "selectedIconPath":"images/imageS.png"
+      },
+       {
+        "pagePath":"pages/voice/voice",
+        "text":"声音",
+        "iconPath":"images/voiceN.png",
+        "selectedIconPath":"images/voiceS.png"
+      },
+      {
+        "pagePath":"pages/video/video",
+        "text":"视频",
+        "iconPath":"images/videoN.png",
+        "selectedIconPath":"images/videoS.png"
+      }
+    ]
+  }
+}
