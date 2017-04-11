@@ -13,6 +13,13 @@
     //加载最新
     this.requestData(this.data.page);
   },
+   onShareAppMessage: function () {
+    return {
+      title: 'i have a fun',
+      desc: '自己找点乐子',
+      path: 'pages/video/video'
+    }
+  },
 
   /**
    * 上拉刷新

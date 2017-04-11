@@ -5,16 +5,25 @@ Page({
     url:'',
     height:0,
     width:0,
+    options:'',
     loadingHidden:true
   },
   onLoad: function(options){
     console.log(options)
      this.setData({
+        options:options,
         url:options.url,
         height: options.height,
         width: options.width,
         loadingHidden:false
      })
+  },
+   onShareAppMessage: function () {
+    return {
+      title: 'i have a fun',
+      desc: '自己找点乐子',
+      path: 'pages/detail/detail?height=0&width=0&url='+this.options
+    }
   },
   onReady: function () {
     // 页面渲染完成

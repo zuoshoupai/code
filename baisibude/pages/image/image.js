@@ -13,11 +13,17 @@ Page({
     //加载最新
     this.requestData(this.data.page);
   },
-
+   onShareAppMessage: function () {
+    return {
+      title: 'i have a fun',
+      desc: '自己找点乐子',
+      path: 'pages/image/image'
+    }
+  },
   /**
    * 上拉刷新
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function () { 
     this.loadingHidden = true;
     //加载最新
     // this.requestData('newlist');

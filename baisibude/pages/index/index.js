@@ -12,7 +12,13 @@ Page({
     //加载最新
     this.requestData(this.page);
   },
-
+  onShareAppMessage: function () {
+    return {
+      title: 'i have a fun',
+      desc: '自己找点乐子',
+      path: '/pages/index/index'
+    }
+  },
   /**
    * 上拉刷新
    */
