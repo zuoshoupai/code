@@ -7,14 +7,19 @@ reload(sys)
 sys.setdefaultencoding('utf-8')   
 class OutPut(object):
 	def __init__(self):
-		self.datas = []
+		self.datas   = []
+		self.host    = 'localhost'
+		self.user    = 'root'
+		self.passwd  = 'yin2016;'
+		self.db      = 'tipaskx'
+
 	def collect_data(self,data):
 		if data is None:
 			return 
 		self.datas.append(data)
 	def output_sql(self):
 		try:
-		    conn = MySQLdb.connect(host='localhost',user='root',passwd='yin2016;',db='lar_test',charset='utf8')
+		    conn = MySQLdb.connect(host=self.host,user=self.user,passwd=self.passwd,db=self.db,charset='utf8')
 		except Exception, e:
 		    print e
 		    sys.exit()
@@ -29,11 +34,11 @@ class OutPut(object):
 			tag   = data['tag']
 			des   = data['des']
 			time  = data['date'] 
-			sql_s = "select count(id) as count from parse_data where url='%s'" % (url)
+			sql_s = "select count(id) as count from ask_articles where url='%s'" % (url)
 			cursor.execute(sql_s)
 			data = cursor.fetchone()
 			if(data[0]==0): 
-				sql = "insert into parse_data (url,img,title,tag,des,content,create_time) values ('%s','%s','%s','%s','%s','%s','%s')" % (url,img,title,tag,des,body,time)
+				sql = "insert into ask_articles (user_id,url,logo,title,summary,content,created_at,status) values ('%s','%s','%s','%s','%s','%s','%s','%s')" % ('1',url,img,title,des,body,time,'1')
 				try: 
 					cursor.execute(sql)
 				except Exception, e:

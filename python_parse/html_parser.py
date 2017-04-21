@@ -43,13 +43,23 @@ class HtmlParser(object):
 			data.append(res_data) 
 		return data
 	def _get_new_data(self,page_url,soup):
-		link = soup.find('div',class_="news_text")
-		# 将正则表达式编译成Pattern对象 
+		data_imgs = set()
+		link = soup.find('div',class_="news_text") 
 		link.find('div',class_="news_tag").extract()
-
-		#tag.clear()
-		#link=re_style.sub('',link)#去掉style  
- 		return link
+		#去除超链接
+		for s in link.find_all('a'):
+			del s['href']
+			del s['target']
+		#取得页面面图片地址
+		try:
+			img_Arr = link.find_all('img')
+			for img in img_Arr: 
+				img_one = img['src']
+				data_imgs.add(img_one)
+		except Exception,e:
+			print "This page have no image"
+			print e
+		return data_imgs,link
 	def parse_main(self,html_cont):  
 		soup = BeautifulSoup(html_cont,'html.parser',from_encoding='UTF-8') 
 		new_data = self._get_main_urls(soup)
@@ -58,5 +68,5 @@ class HtmlParser(object):
 		if page_url is None or html_cont is None:
 			return
 		soup = BeautifulSoup(html_cont,'html.parser',from_encoding='UTF-8')  
-		new_data = self._get_new_data(page_url,soup)
-		return new_data
+		img_Arr,new_data = self._get_new_data(page_url,soup)
+		return img_Arr,new_data

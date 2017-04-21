@@ -1,7 +1,8 @@
 #! /usr/bin/python
 #-*- coding:UTF-8 -*-
-import urllib2
-class HtmlDownload(object):
+import re,os
+import urllib,urllib2;
+class HtmlDownload(object): 
 	def download(self,url):
 		if url is None:
 			return None
@@ -12,6 +13,21 @@ class HtmlDownload(object):
 		if response.getcode()!=200:
 			return None
 		return response.read()
-
-
- 
+	def down_imgs(self,root,urls):
+		for url in urls:
+			full_url = root+url 
+	 		new_url  = 'D:\\wamp\www\\tipask-3.2.1\\public'+url
+	 		dir_name,filename = os.path.split(new_url)
+	 		if not os.path.exists(dir_name):
+	 			os.makedirs(dir_name)
+	 		urllib.urlretrieve(full_url,new_url)
+	 		print new_url
+ 	def down_img(self,root,url):
+ 		full_url = root+url 
+ 		new_url  = 'D:\\wamp\www\\tipask-3.2.1\\public\\image\\show'+url
+ 		dir_name,filename = os.path.split(new_url)
+ 		if not os.path.exists(dir_name):
+ 			os.makedirs(dir_name)
+ 		urllib.urlretrieve(full_url,new_url)
+ 		print new_url
+         
