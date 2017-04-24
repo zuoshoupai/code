@@ -5,7 +5,6 @@ Page({
     url:'',
     height:0,
     width:0,
-    options:'',
     loadingHidden:true
   },
   onLoad: function(options){
@@ -19,10 +18,15 @@ Page({
      })
   },
    onShareAppMessage: function () {
+    var that =this
+    var url = that.data.url
+    //height = that.data.height
+    //width = that.data.width
+    console.log(url)
     return {
       title: 'i have a fun',
-      desc: '自己找点乐子',
-      path: 'pages/detail/detail?height=0&width=0&url='+this.options
+      desc: '自己找点乐子s',
+      path: 'pages/detail/detail?height=0&width=0&url='+url
     }
   },
   onReady: function () {
