@@ -50,6 +50,7 @@ class HtmlParser(object):
 		for s in link.find_all('a'):
 			del s['href']
 			del s['target']
+			del s['style']
 		#取得页面面图片地址
 		try:
 			img_Arr = link.find_all('img')

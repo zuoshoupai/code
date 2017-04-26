@@ -29,10 +29,10 @@ class OutPut(object):
 		for data in self.datas: 
 			url   = data['url']
 			img   = data['img']
-			body  = data['body']
+			body  = MySQLdb.escape_string(str(data['body']))
 			title = data['title'] 
 			tag   = data['tag']
-			des   = data['des']
+			des   = MySQLdb.escape_string(str(data['des']))
 			time  = data['date'] 
 			sql_s = "select count(id) as count from ask_articles where url='%s'" % (url)
 			cursor.execute(sql_s)
@@ -42,9 +42,14 @@ class OutPut(object):
 				try: 
 					cursor.execute(sql)
 				except Exception, e:
+					print url
+					fout = open('errorlog.html','w')
+					fout.write(url)
+					fout.write(sql)
+					fout.write("<br/>")
 					print e  
 			else:
-				print "This one has exsist!"
+				print "This one has exsist!"+url
 		cursor.close()
 		conn.close() 
 	def output_html(self): 

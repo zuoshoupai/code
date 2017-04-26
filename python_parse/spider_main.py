@@ -37,7 +37,7 @@ class SpiderMain(object):
 		self.outputer.output_sql()
 		 
 if __name__=="__main__":
-	for i in range(1,3):
+	for i in range(1,2):
 		root_url = "http://www.ilongterm.com/news/pg-"+str(i)+".html"
 		obj_spider = SpiderMain()
 		obj_spider.craw(root_url)

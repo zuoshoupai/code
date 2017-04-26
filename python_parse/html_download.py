@@ -15,6 +15,8 @@ class HtmlDownload(object):
 		return response.read()
 	def down_imgs(self,root,urls):
 		for url in urls:
+			if 'http' in url:
+				continue
 			full_url = root+url 
 	 		new_url  = 'D:\\wamp\www\\tipask-3.2.1\\public'+url
 	 		dir_name,filename = os.path.split(new_url)
@@ -23,11 +25,19 @@ class HtmlDownload(object):
 	 		urllib.urlretrieve(full_url,new_url)
 	 		print new_url
  	def down_img(self,root,url):
+ 		if url == '':
+ 			print 'This picture is empty!'
+ 			return
+ 		if 'http' in url:
+			return
  		full_url = root+url 
  		new_url  = 'D:\\wamp\www\\tipask-3.2.1\\public\\image\\show'+url
  		dir_name,filename = os.path.split(new_url)
- 		if not os.path.exists(dir_name):
- 			os.makedirs(dir_name)
- 		urllib.urlretrieve(full_url,new_url)
+ 		try:
+	 		if not os.path.exists(dir_name):
+	 			os.makedirs(dir_name)
+	 		urllib.urlretrieve(full_url,new_url)
+		except Exception,e:
+	 		print e
  		print new_url
          
