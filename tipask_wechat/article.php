@@ -1,16 +1,22 @@
 <?php
 	require('conn.php');
 	session_start();
-	$user_id = 0;
 	if(isset($_SESSION['user_id']))
 	{
 		$user_id = $_SESSION['user_id'];
+	}else{
+		$user_id = 0;
 	}
 	if(isset($_GET['user_id']))
 	{
 		$user_id = $_GET['user_id'];
 	}
 	
+	if(empty($_GET['article_id']))
+	{
+		echo "数据错误！";
+		die();
+	}
 	$post = 'article_id='.$_GET['article_id'].'&user_id='.$user_id;
 	$ch = curl_init();
 	curl_setopt($ch,CURLOPT_URL,$root_url.'/api/article/detail');
@@ -20,7 +26,6 @@
 	$listData = curl_exec($ch);//这里会返回token，需要处理一下。
 	$listData = json_decode($listData,true);
 	curl_close($ch);
-	
 	if($listData['code']==0)
 	{ 
 		$listData = $listData['data'];
@@ -59,7 +64,8 @@
 	<script type="text/javascript" src="js/common.js"></script>
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<style type="text/css">
-		.arttab{width: 100%;padding-top: 0.35rem;padding-bottom: 0.2rem;border: 1px solid #e8e8e8;}
+		img{max-width:97% !important;height:auto !important;}
+		.arttab{width: 100%;padding-top: 0.3rem;padding-bottom: 0.2rem;border: 1px solid #e8e8e8;}
 		.arttab1{width: 20%;}
 		.arttab2{width: 60%;text-align: center;font-size: 0.425rem;color: #252525;height: 0.5rem;overflow: hidden;}
 		.artimg1{width: 0.5rem;margin-left: 0.25rem;display: block;}
@@ -68,7 +74,7 @@
 		.artpt1{width: 94%;padding-left: 2%;padding-right: 2%;padding-top: 0.25rem;}
 		.artpt1-p1{font-size: 0.425rem;color:#252525;line-height: 0.55rem;max-height: 1.1rem;overflow: hidden;}
 		.artpt1-p2{font-size: 0.35rem;color:#8c8c8c;line-height: 0.45rem;margin-top: 0.25rem;margin-bottom: 0.25rem;}
-		 #news{font-size: 0.3rem;color:#3e3e3e;line-height: 0.55rem;margin: 0 auto;margin-top: 0.35rem;margin-bottom: 0.35rem;width: 82%;}
+		  #news{font-size: 0.32rem;color:#3e3e3e;line-height: 0.55rem;margin: 0 auto;margin-top: 0.35rem;margin-bottom: 0.35rem;width:95%;font-family:黑体}
 		.artimg4{width: 100%;height: 3.5rem;}
 		.artbtm{width: 97%;padding-left: 3%;border-top: 1px solid #e8e8e8;padding-top: 0.2rem;padding-bottom: 0.2rem;position: fixed;bottom:0;left:0;z-index: 1;background-color: #fff;}
 		.artimg5{width:0.9rem;margin-right: 0.5rem;}
@@ -99,18 +105,20 @@
 	 <div class="clearfix arttab">
 	 	<a href="##" onclick="history.back();"><div class="fl arttab1"><span class="artimg1"><img src="images/fanhui.png" alt=""></span></div></a>
 	 	<p class="fl arttab2"><!--<?php echo $listData['source'];?>--></p>
+
 	 	<div   class="fl clearfix arttab1">
-	 		<span class="fl artimg3" onclick="add_favorite(<?php echo $listData['id'].','.$listData['is_favorite'].','.$user_id;?>)"><img src="<?php echo $is_favorite;?>" alt=""></span> <!--收藏-->
-	 		<!--<span class="fl artimg3" id="sharetxt"><img src="images/fenxiang.png" alt=""></span>分享-->
+	 		<span class="fl artimg2" onclick="add_favorite(<?php echo $listData['id'].','.$listData['is_favorite'].','.$user_id;?>)"><img src="<?php echo $is_favorite;?>" alt=""></span> <!--收藏-->
+	 		<span class="fl artimg3" id="sharetxt"><img src="images/fenxiang.png" alt=""></span><!--分享-->
 	 	</div>
 	 </div>
 	 <div class="artpt1">
 	 	<p class="artpt1-p1"><?php echo $listData['title'];?></p>
-	 	<div class="clearfix artpt1-p2"><p class="fl marr2"><?php echo $listData['created_at'];?></p><p class="fl marr2">阅读</p><p class="fl"><?php echo $listData['comments'];?></p></div>
+	 	<div class="clearfix artpt1-p2"><p class="fl marr2"><?php echo $listData['created_at'];?></p><p class="fl marr2"></p><p class="fl"><?php echo $listData['source'];?></p></div>
 	 	<!-- 推广 -->
 		
 	 	<div class="clearfix ad-rate" <?php echo $display;?>>
-	 		<span class="fl ratesimg1"><img src="<?php echo $root_url.'/'.$advert['img'];?>" alt=""></span>
+			<span style="display:inline-block;" class="fl ratesimg1"><img style="max-height:99%;" src="<?php echo $advert['img'];?>" alt=""><span style="display:inline-block;height:100%;width:0%;"></span></span>
+			
 	 		<div class="fl rateprt1">
 	 			<p class="ratep1"><?php echo $advert['title'];?></p>
 	 			<p class="ratep2"><?php echo $advert['descri'];?></p>

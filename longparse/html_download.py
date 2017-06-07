@@ -18,7 +18,7 @@ class HtmlDownload(object):
 			if 'http' in url:
 				continue
 			full_url = root+url 
-	 		new_url  = '/home/www/tipask/public'+url
+	 		new_url  = '/home/www/stpaulsfriends/public'+url
 	 		dir_name,filename = os.path.split(new_url)
 	 		if not os.path.exists(dir_name):
 	 			os.makedirs(dir_name)
@@ -31,7 +31,7 @@ class HtmlDownload(object):
  		if 'http' in url:
 			return
  		full_url = root+url 
- 		new_url  = '/home/www/tipask/public'+url
+ 		new_url  = '/home/www/stpaulsfriends/public/image/show'+url
  		dir_name,filename = os.path.split(new_url)
  		try:
 	 		if not os.path.exists(dir_name):

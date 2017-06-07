@@ -5,7 +5,6 @@
 	{
 		go_url($login_url,'请先登录');
 	}
-
 //获取当前用户信息
 	$ch = curl_init();
 	curl_setopt($ch,CURLOPT_URL,$root_url.'/api/user/info');
@@ -36,7 +35,7 @@
 		.name{font-size: 0.425rem;line-height: 0.65rem;}
 		.address{font-size: 0.3rem;line-height: 0.5rem;}
 		.myprt1{width: 100%;margin-top: 0.25rem;background-color: #fff;font-size: 0.3rem;color:#252525;text-align: center;line-height: 0.6rem;}
-		.mysan{width:33%;border-right: 1px solid #e1e1e1;border-bottom: 1px solid #e1e1e1;height: 3.125rem;}
+		.mysan{width:33%;border-right: 1px solid #e1e1e1;height: 3.125rem;}
 		.myimg1{width:0.65rem;margin: 0 auto;display: block;padding-top: 0.8rem;}
 		.myimg2{width:0.5625rem;margin: 0 auto;display: block;padding-top: 0.8rem;}
 	</style>

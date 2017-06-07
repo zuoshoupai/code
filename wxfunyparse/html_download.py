@@ -26,7 +26,7 @@ class HtmlDownload(object):
 			filename = url.replace(root,'')
  			filename = filename.replace('wx_fmt=jpeg','')
  			filename = filename.replace('?','/1.jpg')
- 			new_url  = 'D:/wamp/www/tipask/public'+filename
+ 			new_url  = '/home/www/stpaulsfriends/public'+filename
 	 		dir_name,filename = os.path.split(new_url)
 	 		if not os.path.exists(dir_name):
 	 			os.makedirs(dir_name)
@@ -38,7 +38,7 @@ class HtmlDownload(object):
  			print 'This picture is empty!'
  			return
  		filename = url.replace(root,'')
- 		new_url  = 'D:/wamp/www/tipask/public/image/show'+filename
+ 		new_url  = '/home/www/stpaulsfriends/public/image/show'+filename
  		dir_name,filename = os.path.split(new_url)
  		try:
 	 		if not os.path.exists(dir_name):
@@ -47,15 +47,13 @@ class HtmlDownload(object):
 		except Exception,e:
 	 		print e
  		print new_url
- 	def down_img_free(self,url):
- 		print(url)
- 		
+ 	def down_img_free(self,url,parm=''):
  		if url == '':
  			print 'This picture is empty!'
  			return
  		filename  =  str(int(time.time()*1000)) +'.jpeg'
- 		new_url  = 'D:/wamp/www/tipask/public/upload/'+filename
- 		call_url = '/upload/'+filename
+ 		new_url  = '/home/www/stpaulsfriends/public/'+parm+'upload/'+filename
+ 		call_url = 'upload/'+filename
  		dir_name,filename = os.path.split(new_url)
  		try:
 	 		if not os.path.exists(dir_name):

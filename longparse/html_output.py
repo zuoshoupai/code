@@ -11,7 +11,7 @@ class OutPut(object):
 		self.host    = 'localhost'
 		self.user    = 'root'
 		self.passwd  = 'yin2016;'
-		self.db      = 'tipask'
+		self.db      = 'stpaulsfriends'
 
 	def collect_data(self,data):
 		if data is None:

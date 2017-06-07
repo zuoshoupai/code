@@ -12,7 +12,7 @@ class OutPut(object):
 		self.host    = 'localhost'
 		self.user    = 'root'
 		self.passwd  = 'yin2016;'
-		self.db      = 'tipask'
+		self.db      = 'stpaulsfriends'
 
 	def collect_data(self,data):
 		if data is None:
@@ -91,7 +91,7 @@ class OutPut(object):
 		cursor.execute(sql_s)
 		data = cursor.fetchone()
 		if(data[0]==0): 
-			sql = "insert into ask_articles (user_id,url,logo,title,summary,content,created_at,status,category_id) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s')" % ('1',url,img,title,des,body,time_date,'1','9')
+			sql = "insert into ask_articles (user_id,url,logo,title,summary,content,created_at,status,category_id,source) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" % ('1',url,img,title,des,body,time_date,'1','9','搞笑集锦')
 			try: 
 				cursor.execute(sql)
 			except Exception, e:

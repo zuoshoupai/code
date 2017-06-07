@@ -3,7 +3,9 @@
 	session_start();
 	if(@$_GET['optr'] == 'toto')
 	{ 
-		header("Location: ".$wechat_url); 
+		$_SESSION['user_id'] = 40;
+		$_SESSION['token']   = '7e8edc2423c220ee3553d0b7191aea9e';
+		//header("Location: ".$wechat_url); 
 	}
 ?>
 <!DOCTYPE html>

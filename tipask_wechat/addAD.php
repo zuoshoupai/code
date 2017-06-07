@@ -128,7 +128,7 @@
 			formData.append("link_id",e.link_id.value);
 			formData.append("user_id",e.user_id.value);
 			formData.append("token",e.token.value);
-			Url = 'http://shop.m9n.com/api/adv/add';
+			Url = 'http://www.askme.com/api/adv/add';
 			$("#popwiow").hide();
 			  $.ajax({  
 			  		type:"POST", 

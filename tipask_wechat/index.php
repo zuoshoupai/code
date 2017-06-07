@@ -5,12 +5,7 @@
 	{
 		$list_default = $_GET['categorie'];
 	}
-	if(isset($_SESSION['user_id']))
-	{
-		$user_url = '&user_id='.$_SESSION['user_id'];
-	}else{
-		$user_url = '';
-	}
+	
 	//获取分类列表
 	$ch = curl_init();//初始化一个资源
 	curl_setopt($ch,CURLOPT_URL,$root_url.'/api/categorie/list');//设置我们要获取的网页
@@ -43,7 +38,7 @@
 	.in-mid2{padding-bottom: 0.2rem;border-bottom:1px solid #e8e8e8;}
 	.in-img2{width: 30%;height:2rem; }
 	
-	</style> 
+	</style>
 	
 </head>
 <body>
@@ -95,7 +90,7 @@
 							$article_list = $listData['data'];
 							foreach($article_list as $k=>$v)
 							{
-								echo '<a href="article.php?article_id='.$v['id'].$user_url.'">
+								echo '<a href="article.php?article_id='.$v['id'].'">
 										<li class="clearfix">
 											<span class="in-img1 fl"><img src="'.$v['logo'][0].'" alt=""></span>
 											<div class="fl in-wz">

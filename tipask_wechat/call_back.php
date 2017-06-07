@@ -23,7 +23,7 @@
 		//授权登录
 		$ch = curl_init();
 		curl_setopt($ch,CURLOPT_URL,'http://shop.m9n.com/api/user/login');
-		$post = 'login_type=wx2&openid='.($content->openid).'&sex='.($content->sex).'&nickname='.($content->nickname).'&city='.($content->city).'&province='.($content->province).'&headimgurl='.($content->headimgurl);
+		$post = 'login_type=wx2&openid='.($content->openid).'&sex='.($content->sex).'&nickname='.($content->nickname).'&city='.($content->city).'&province='.($content->province).'&headimgurl='.($content->headimgurl).'&devicetoken=novaliable&device_type=2';
 		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);//关闭直接输出
 		curl_setopt($ch,CURLOPT_POST,1);//使用post提交数据
 		curl_setopt($ch,CURLOPT_POSTFIELDS,$post);//设置 

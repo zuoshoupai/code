@@ -7,12 +7,6 @@
 	}else{
 		$page_now = 1;
 	} 
-	if(isset($_SESSION['user_id']))
-	{
-		$user_url = '&user_id='.$_SESSION['user_id'];
-	}else{
-		$user_url = '';
-	}
 //获取当前用户消息
 	$ch = curl_init();
 	curl_setopt($ch,CURLOPT_URL,$root_url.'/api/msg/list');
@@ -54,7 +48,7 @@
 		echo '
 		<div class="news">
 	        <p class="in-p2" style="text-align:center;margin-top:0.2rem;margin-bottom:0.2rem;"><span>'.$ListDate['created_at'].'</span></p>
-			<a href="article.php?article_id='.$ListDate['id'].$user_url.'">
+			<a href="article.php?article_id='.$ListDate['id'].'">
 				<div class="in-mid1 bgc1 clearfix" style="padding-bottom:0.15rem;">
 					<span class="in-img1 fl"><img src="'.$ListDate['logo'][0].'" alt=""></span>
 					<div class="fl in-wz" style="width:68%;">

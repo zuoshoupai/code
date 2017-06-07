@@ -23,50 +23,37 @@ class HtmlParser(object):
 		
 	def _get_main_urls(self,soup): 
 		data = []
-		datas = demjson.decode(soup)
+		datas = demjson.decode(soup.encode('utf-8'))
 		error_code = datas['showapi_res_code']
 		if(error_code==0):
-			links = datas['showapi_res_body']
-			print(links)
-			#for link in links:
-				#print(link['weixin_url'])
-		
+			links = datas['showapi_res_body']['pagebean']['contentlist']
+			for link in links:
+				res_data = {} 
+				res_data['title'] = link['name']
+				res_data['url']   = link['weixin_url']
+				res_data['des']   = link['text']
+				res_data['date']  = link['create_time']
+				res_data['tag']   = '搞笑'
+				data.append(res_data)
 		return data
 	def _get_new_data(self,page_url,soup):
-		
 		data_imgs = set()
-		link = soup.find('div',id="contentbody")
-		i=0
-		j=0
-		for p in link.find_all('p'):
-			i=i+1
-		for p in link.find_all('p'):
-			j=j+1
-			if(j==1):
-				p.extract()
-			if(j>(i-1)):
-				p.extract()
+		#print(soup)
+		link = soup.find('article')
+		link.find('div',class_="list-user-author").extract()
+		link.find('div',class_="item-tool").extract()
+		padding = link.find('div',class_="x-video-p")
+		del padding['style']
 		#去除超链接
 		for s in link.find_all('a'):
 			del s['href']
 			del s['target']
 			del s['style']
-		#去除超链接
-		for ifra in link.find_all('iframe'):
-			pass#del ifra['width']
-			pass #del ifra['height']
-		#取得页面面图片地址
-		try:
-			img_Arr = link.find_all('img')
-			for img in img_Arr: 
-				#img_one = img['src']
-				#data_imgs.add(img_one)
- 				img['src'] = self.downloader.down_img_free(img['src'])
-		except Exception,e:
-			print "This page have no image"
-			print e 
-		root = 'http://pics.shenchuang.com'
-		return data_imgs,str(link).replace(root,'')
+		img  = link.find('img')
+ 		img_new = self.downloader.down_img_free(img['src'],'image/show/')
+ 		link.find('video')['poster'] = img['src']
+ 		link.find('div',class_="x-video-poster").extract()
+		return img_new,link
 	def parse_main(self,html_cont):  
 		soup = BeautifulSoup(html_cont,'html.parser',from_encoding='UTF-8') 
 		new_data = self._get_main_urls(soup)
