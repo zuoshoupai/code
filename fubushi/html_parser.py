@@ -3,7 +3,7 @@
 from bs4 import BeautifulSoup
 import re
 import urlparse
-
+import base64
 class HtmlParser(object): 
 	def _get_new_urls(self,page_url,soup):
 		new_urls = set() 
@@ -22,15 +22,16 @@ class HtmlParser(object):
 		data = []
 		# /view/13.html
 		cont = soup.find('form',id="sendqunform").find('div',class_="outsortlist")
-		links = cont.find_all('div') 
+		links = cont.find_all('div',class_="memberlist") 
+		count = 0
 		for link in links: 
+			count+=1
+			print('craw:',count)
 			li = 0
 			res_data = {}
 			
 			for p in link.find_all('li'):
-				
 				li = li+1
-
 				if(li==1):
 					res_data['user'] = p.find('a',class_="font_blue12b").get_text() #用户名
 				
@@ -41,11 +42,26 @@ class HtmlParser(object):
 						area = a.get_text()+area+','
 					res_data['area'] = area #工作地
 				if(li==3):
-					res_data['company'] = p.get_text() #公司名称
+					res_data['company'] = p.get_text().replace('公司名称： ','') #公司名称
 				if(li==4):
-					res_data['qq_num'] = p.get_text() #qq号码
+					try:
+						qq_num = p.find('img')['src'] #qq号码
+
+						qq_num = qq_num.replace('makecode.php?p=','')
+						res_data['qq_num'] = base64.decodestring(qq_num)
+					except Exception,e:
+						res_data['qq_num'] = 'none'
+						print('qq_num')
+						print(e)
 				if(li==5):
-					res_data['email'] = p.get_text() #邮箱
+					try:
+						email_num = p.find('img')['src'] #邮箱
+						email_num = email_num.replace('makecode.php?p=','')
+						res_data['email'] = base64.decodestring(email_num)
+					except Exception,e:
+						res_data['email'] = 'none'
+						print('email')
+						print(e)
 			data.append(res_data) 
 		return data
 	def _get_new_data(self,page_url,soup):

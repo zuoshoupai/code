@@ -1,13 +1,13 @@
 # Netscape HTTP Cookie File
 bbs.fobshanghai.com	FALSE	/	FALSE	1498101544	5HD_auth	3104gKH8T/rSv068z/EXqoR9ys3Ya3i+Um2zKkJ32jYOLu/UV5jyZF795r2lQCmYAA6OoQ1X/QmCsASOtWhEFX+w1EboRQ
 bbs.fobshanghai.com	FALSE	/	FALSE	1527045544	5HD_cookietime	2592000
-bbs.fobshanghai.com	FALSE	/	FALSE	1496475905	5HD_sid	7o7ncV
-pifa.fobshanghai.com	FALSE	/	FALSE	1496475905	ECM_ID	1bf517751c9fff44403b7b5df3f66c2eb05e339d
-bbs.fobshanghai.com	FALSE	/	FALSE	1496475905	__utma	119447770.1221620414.1495507847.1495866049.1495871119.4
-bbs.fobshanghai.com	FALSE	/	FALSE	1496475905	__utmc	119447770
-bbs.fobshanghai.com	FALSE	/	FALSE	1496475905	__utmz	119447770.1495507847.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
-bbs.fobshanghai.com	FALSE	/	FALSE	1496475905	__utmb	119447770
-#.bbs.fobshanghai.com TRUE	/	FALSE	1558943118	__utma	119447770.1221620414.1495507847.1495866049.1495871119.4
-#.bbs.fobshanghai.com TRUE	/	FALSE	1495872918  __utmc	119447770
-#.bbs.fobshanghai.com TRUE	/	FALSE	1511275846	__utmz	119447770.1495507847.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
-#.bbs.fobshanghai.com TRUE	/	FALSE	1495872918	__utmb	119447770
+bbs.fobshanghai.com	FALSE	/	FALSE	1559898819	5HD_sid	SlaILi
+pifa.fobshanghai.com	FALSE	/	FALSE	1559975419	ECM_ID	1bf517751c9fff44403b7b5df3f66c2eb05e339d
+bbs.fobshanghai.com	FALSE	/	FALSE	1559898819	__utma	119447770.1221620414.1495507847.1495866049.1495871119.4
+bbs.fobshanghai.com	FALSE	/	FALSE	1559898819	__utmc	119447770
+bbs.fobshanghai.com	FALSE	/	FALSE	1559898819	__utmz	119447770.1495507847.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
+bbs.fobshanghai.com	FALSE	/	FALSE	1559898819	__utmb	119447770
+#.bbs.fobshanghai.com TRUE	/	FALSE	1559898819	__utma	119447770.1221620414.1495507847.1495866049.1495871119.4
+#.bbs.fobshanghai.com TRUE	/	FALSE	1559898819  __utmc	119447770
+#.bbs.fobshanghai.com TRUE	/	FALSE	1559898819	__utmz	119447770.1495507847.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
+#.bbs.fobshanghai.com TRUE	/	FALSE	1559898819	__utmb	119447770
