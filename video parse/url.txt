@@ -1,0 +1,17 @@
+﻿
+http://yun.mt2t.com/yun?url=,阿泽首选
+http://yyygwz.com/index.php?url=,通用接口一
+http://p2.api.47ks.com/webcloud/?v=,通用vip接口1
+http://www.wmxz.wang/video.php?url=,通用vip接口2
+http://000o.cc/jx/ty.php?url==,通用vip接口3
+http://yyygwz.com/index.php?url=,通用vip接口4
+http://jx.ck921.com/?url=,通用vip接口5
+http://s1y2.com/?url=,通用vip接口6
+http://www.ou522.cn/t2/1.php?url=,通用vip接口7
+http://jx.xuanpianwang.com/parse?url=,通用vip接口8
+https://apiv.ga/magnet/,磁力解析
+http://jx.xuanpianwang.com/parse?url=,乐视解析
+
+
+
+

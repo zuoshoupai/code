@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<content>
+	<web>
+		<url>http://yun.mt2t.com/yun?url=</url>
+		<name>阿泽首选</name>
+	</web>
+	<web>
+		<url>http://yyygwz.com/index.php?url=</url>
+		<name>通用接口一</name>
+	</web>
+	<web>
+		<url>http://000o.cc/jx/ty.php?url==</url>
+		<name>通用接口二</name>
+	</web>
+	<web>
+		<url>http://jx.ck921.com/?url=</url>
+		<name>通用接口三</name>
+	</web>
+</content>
