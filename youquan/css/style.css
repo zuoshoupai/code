@@ -1,0 +1,149 @@
+body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,code,em,img,q,small,strong,dd,dl,dt,li,ol,ul,fieldset,form,label,table,tbody,tr,th,td,input{margin:0;padding:0;border:0}
+body{font-size:32px;font-size:.32rem;max-width:1080px;margin:0 auto;font-family:'STHeiti','Microsoft YaHei',Helvetica,Arial,sans-serif;-webkit-tap-highlight-color:rgba(0,0,0,0)} 
+html {
+    font-size : 20px;
+}
+p{
+    text-align: justify;
+}
+@media only screen and (min-width: 401px){
+    html {
+        font-size: 25px !important;
+    }
+}
+@media only screen and (min-width: 428px){
+    html {
+        font-size: 26.75px !important;
+    }
+}
+@media only screen and (min-width: 481px){
+    html {
+        font-size: 30px !important; 
+    }
+}
+@media only screen and (min-width: 569px){
+    html {
+        font-size: 35px !important; 
+    }
+}
+@media only screen and (min-width: 641px){
+    html {
+        font-size: 40px !important; 
+    }
+}
+a,a:active,a:hover,a:focus,a:visited{text-decoration:none}
+a,img{-webkit-touch-callout:none;max-width: 100%}
+ol,ul,li{list-style:none}
+.text-center{
+    text-align: center;
+}
+.clear{
+	clear:both;
+}
+body{ 
+	background-color:#F3F3F3;
+}
+header{
+	margin: 0 auto;
+	width: 98%;
+	background-color: #fff;
+}
+header h3{
+	font-size: .8rem;
+	text-align: center;
+	background-color: #E83956;
+	color: #fff;
+	height: 1.7rem;
+	line-height: 1.7rem;
+}
+.show{
+	overflow:hidden;
+}
+.pic-show,.word-show{
+	width:50%;
+	float:left;
+	
+}
+.pic-show{
+	height: 7.7rem;
+	overflow: hidden;
+}
+.pic-show{
+	height: 7.7rem;
+}
+.word-show{
+	position: relative;
+}
+.word-show .title{
+	padding: .2rem .5rem;
+}
+.word-show .title span{
+	font-size: .8rem;
+	font-weight: inherit;
+	color: #000;
+ }
+ 
+.word-show .price{
+	position: absolute;
+	left: .4rem;
+	top: 3.2rem;
+}
+.word-show .price span:nth-child(1){
+	color: #F81135;
+	font-size: 1rem;
+	font-weight: bold;
+}
+.word-show .price span:nth-child(2){
+	color: #000;
+	font-size: .6rem;
+	padding-left: .8rem;
+	font-weight: inherit;
+	text-decoration: line-through;
+}
+.word-show .coupon{
+	position: absolute;
+	top: 5rem;
+	left: .4rem;
+}
+.word-show .coupon img{
+	width: 5rem;
+}
+.main{
+	margin-top: 1.2rem;
+}
+.coupon-pic{
+	position: relative;
+	left: 50%;
+	margin-left: -2.5rem;
+}
+.coupon-pic img{
+	width: 5rem;
+}
+.version{
+	width: 50%;
+	margin-left: 25%;
+	text-align: center;
+	margin-top: 1.5rem;
+}
+.version span{
+	color: #656565;
+	font-size: .7rem;
+}
+.download{
+	width: 9rem;
+	margin: 1.2rem auto;
+}
+.download a{
+	background-color: #E83956;
+	width: 9rem;
+	display: block;
+	height: 1.7rem;
+	color: #fff;
+	font-size: .9rem;
+	text-align: center;
+	line-height: 1.7rem;
+}
+footer{
+	width: 7rem;
+	margin: 1rem auto;
+}
