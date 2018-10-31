@@ -1,0 +1,19 @@
+<style>
+{literal} 
+.loader{font-size: 5px;width: 10px;height: 10px;border-radius: 50%;position: relative;text-indent: -9999em;margin: 0 auto;animation: load-effect 1s infinite linear;box-shadow: -3em 2em 0 0.5em #FFF, 0 2em 0 0 #FFF, 3em 2em 0 -0.5em #FFF;}
+
+@keyframes load-effect {
+   0% { box-shadow: -3em 2em 0 .5em #FFF, 0 2em 0 0 #FFF, 3em 2em 0 -.5em #FFF;}
+   25% {box-shadow: -3em 2em 0 0 #FFF, 0 2em 0 -.5em #FFF, 3em 2em 0 0 #FFF;}
+   50% {box-shadow: -3em 2em 0 -0.5em #FFF, 0 2em 0 0 #FFF, 3em 2em 0 .5em #FFF;}
+   75% {box-shadow: -3em 2em 0 0 #FFF, 0 2em 0 .5em #FFF, 3em 2em 0 0 #FFF;}
+  100% {box-shadow: -3em 2em 0 .5em #FFF, 0 2em 0 0 #FFF, 3em 2em 0 -.5em #FFF;}
+}
+{/literal}
+</style> 
+<div class="z-dialog" id="z-dialog" style="position: fixed;z-index: 998;top: 0;right: 0;bottom: 0;left: 0;-webkit-transition-duration: 400ms;transition-duration: 400ms;opacity: 0;opacity: 1;background: rgba(0,0,0,.4);display: block;">
+	<div class="dialog" style="display: block;-webkit-transition-duration: 400ms;transition-duration: 400ms;-webkit-transform: translate3d(-50%,-50%,0) scale(1);
+transform: translate3d(-50%,-50%,0) scale(1);opacity: 1;    position: fixed;z-index: 10000;top: 45%;left: 50%;overflow: hidden;width: 270px;height: 50px;text-align:center">
+	<div class="loader">Loading...</div>
+</div>
+</div>
