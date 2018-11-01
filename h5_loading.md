@@ -50,7 +50,8 @@ transform: translate3d(-50%,-50%,0) scale(1);opacity: 1;    position: fixed;z-in
 </div> 
 ```
 ![效果图](http://img2.ph.126.net/qGR770SK0WaOJyY-WvUY1A==/1669991036924977415.png)
-###第三种(使用gif背景动图)
+
+### 第三种(使用gif背景动图)
 ```html
 //css部分
 .loading{
