@@ -1,28 +1,39 @@
-<?php       
-//目标地址
+<?php        
+//老师
 $content=_get_contents('http://www.pigai.org/zt/2019/?act=downprint&t=2');  
-$data=array();
+$rule_mean ="/<p>\s{0,4}<span>(.*?)<\/span>\s{0,4}<span>(.*?)<\/span>\s{0,4}<a href=\"(.*?)\">/";
+$save_path="./upload/laoshi";
+//学生
+/*
+$content=_get_contents('http://www.pigai.org/zt/2019/?act=downprint&t=1');  
+$rule_mean ="/<p>\s{0,4}<span>(.*?)<\/span>\s{0,4}<span>(.*?)<\/span>\s{0,4}<span>(.*?)<\/span>\s{0,4}<span>(.*?)<\/span>\s{0,4}<a href=\"(.*?)\">/";
+$save_path="./upload/xuesheng";
+*/ 
 
-//存储目录
-$save_path=dirname(dirname(dirname(__FILE__)))."/upload/xuesheng";
 if(!is_dir($save_path)){
 	mkdir($save_path,0777,true);
 	chmod($save_path,0777); 
 }  
-$rule_mean ="/<p>\s{0,4}<span>(.*?)<\/span>\s{0,4}<span>(.*?)<\/span>\s{0,4}<a href=\"(.*?)\">/";
+
 if(preg_match_all($rule_mean,$content,$list_str)){
 	$i=1;
-	foreach($list_str[1] as $k=>$v){
-		$data[]=array(0=>$v,1=>$list_str[2][$k],2=>$list_str[3][$k]);
+	foreach($list_str[1] as $k=>$v){ 
 		if(empty($v)){
 			continue;
-		}
+        } 
 		echo $i;echo "\r\n";
         $i++; 
-        //拼接图片源地址
+        //拼接图片源地址 老师
 		echo $file_target='http://www.pigai.org/zt/2019/'.$list_str[3][$k];
-		$fileName=iconv("UTF-8","GB18030",$v.'_'.$list_str[2][$k].'优秀指导教师奖.jpg');
-		echo "\r\n";
+        $fileName=iconv("UTF-8","GB18030",$list_str[2][$k].' '.$v.' 优秀指导教师奖.jpg');
+        
+        //拼接图片源地址 学生
+        /*
+		echo $file_target='http://www.pigai.org/zt/2019/'.$list_str[5][$k];
+		$fileName=iconv("UTF-8","GB18030",$list_str[2][$k].' '.$list_str[1][$k].' '.$list_str[3][$k].'.jpg');
+        */
+
+        echo "\r\n";
 		$file =_get_contents($file_target); 
 		file_put_contents($save_path.'/'.$fileName,$file); 
 	} 
